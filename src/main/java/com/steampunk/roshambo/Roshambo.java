@@ -15,15 +15,27 @@ public class Roshambo {
         return wins;
     }
 
+    void setWins(final int wins) {
+        this.wins = wins;
+    }
+
     public int getLosses() {
         return losses;
+    }
+
+    void setLosses(final int losses) {
+        this.losses = losses;
     }
 
     public int getDraws() {
         return draws;
     }
 
-    private String check(final Play human, final Play computer) {
+    void setDraws(final int draws) {
+        this.draws = draws;
+    }
+
+    String check(final Play human, final Play computer) {
         final StringBuilder result = new StringBuilder();
         if (computer == human) {
             draws++;
@@ -42,7 +54,7 @@ public class Roshambo {
         return result.toString();
     }
 
-    private String tally() {
+    String tally() {
         if (losses > wins) {
             return "The computer wins.";
         } else if (wins > losses) {
