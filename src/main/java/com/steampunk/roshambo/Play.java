@@ -3,15 +3,24 @@ package com.steampunk.roshambo;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
- * Rock crushes scissors. Paper covers rock. Scissors cut paper.
+ * Scissors cut Paper.
+ * Paper covers Rock.
+ * Rock crushes Lizard.
+ * Lizard poisons Spock.
+ * Spock smashes Scissors.
+ * Scissors decapitate Lizard.
+ * Lizard eats Paper.
+ * Paper disproves Spock.
+ * Spock vaporizes Rock
+ * Rock crushes Scissors.
  */
 public enum Play {
-
     ROCK {
         @Override
         public String beats(final Play other) {
             switch (other) {
                 case SCISSORS:
+                case LIZARD:
                     return "crushes";
                 default:
                     return null;
@@ -28,6 +37,8 @@ public enum Play {
             switch (other) {
                 case ROCK:
                     return "covers";
+                case SPOCK:
+                    return "disproves";
                 default:
                     return null;
             }
@@ -43,6 +54,42 @@ public enum Play {
             switch (other) {
                 case PAPER:
                     return "cut";
+                case LIZARD:
+                    return "decapitates";
+                default:
+                    return null;
+            }
+        }
+        @Override
+        public String toString() {
+            return "Scissors";
+        }
+    },
+    LIZARD {
+        @Override
+        public String beats(final Play other) {
+            switch (other) {
+                case SPOCK:
+                    return "poisons";
+                case PAPER:
+                    return "eats";
+                default:
+                    return null;
+            }
+        }
+        @Override
+        public String toString() {
+            return "Lizard";
+        }
+    },
+    SPOCK {
+        @Override
+        public String beats(final Play other) {
+            switch (other) {
+                case SCISSORS:
+                    return "smashes";
+                case ROCK:
+                    return "vaporizes";
                 default:
                     return null;
             }
@@ -62,8 +109,13 @@ public enum Play {
                 return ROCK;
             case "paper":
                 return PAPER;
+            case "scissor":
             case "scissors":
                 return SCISSORS;
+            case "lizard":
+                return LIZARD;
+            case "spock":
+                return SPOCK;
             default:
                 return null;
         }
