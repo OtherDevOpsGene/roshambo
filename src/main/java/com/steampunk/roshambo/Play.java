@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
  * Scissors decapitate Lizard.
  * Lizard eats Paper.
  * Paper disproves Spock.
- * Spock vaporizes Rock
+ * Spock vaporizes Rock.
  * Rock crushes Scissors.
  */
 public enum Play {
